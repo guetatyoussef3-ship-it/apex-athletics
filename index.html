@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Apex Athletics, salle de calisthénie au centre ville. Plus qu'une salle, une communauté.">
+<title>Apex Athletics</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+/* Layout: sombre, une colonne centrée de 1080px, grand titre condensé en tête, bandes alternées violet/noir, contact en fin de page */
+:root {
+  --bg: #0b0714;
+  --surface: #150d26;
+  --line: #2c1d4d;
+  --fg: #f4f0fb;
+  --muted: #a99cc4;
+  --accent: #8b3dff;
+  --accent-hi: #b98cff;
+  --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin: 0 auto; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-hi); outline-offset: 3px; }
+
+header.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 20px; }
+.logo { font-family: var(--font-display); font-weight: 800; font-size: 26px; letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.logo-mark { width: 30px; height: 30px; flex: none; }
+.top a.pill { font-size: 14px; font-weight: 700; text-decoration: none; padding: 9px 16px; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent-hi); }
+.top a.pill:hover { background: var(--accent); color: #fff; }
+
+.hero { padding-block: 56px 72px; position: relative; }
+.hero::before {
+  content: ""; position: absolute; right: -10%; top: -20px; width: 70%; max-width: 560px; aspect-ratio: 1; max-height: 560px;
+  background: radial-gradient(closest-side, rgba(139,61,255,.42), transparent 72%); pointer-events: none; z-index: 0;
+}
+.hero > * { position: relative; z-index: 1; }
+.eyebrow { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-hi); font-weight: 700; margin: 0 0 18px; }
+h1 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; line-height: .9; letter-spacing: .01em; margin: 0 0 24px; font-size: clamp(56px, 13vw, 140px); text-wrap: balance; }
+h1 span { color: var(--accent); }
+.lead { max-width: 52ch; font-size: 19px; color: var(--muted); margin: 0 0 32px; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; text-decoration: none; padding: 14px 24px; border-radius: 8px; background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+.btn:hover { background: var(--accent-hi); border-color: var(--accent-hi); color: #1a0b33; }
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--accent-hi); background: transparent; color: var(--accent-hi); }
+
+section { padding-block: 64px; border-top: 1px solid var(--line); }
+h2 { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: clamp(36px, 7vw, 64px); line-height: 1; margin: 0 0 12px; text-wrap: balance; }
+.sub { color: var(--muted); max-width: 56ch; margin: 0 0 36px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; min-width: 0; }
+.card h3 { font-family: var(--font-display); text-transform: uppercase; font-size: 28px; font-weight: 800; letter-spacing: .02em; margin: 0 0 8px; }
+.card p { margin: 0; color: var(--muted); }
+.card svg { width: 40px; height: 40px; margin-bottom: 16px; color: var(--accent-hi); }
+
+.slogan { text-align: left; }
+.slogan p { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(34px, 8vw, 84px); line-height: .95; margin: 0; }
+.slogan p b { color: var(--accent); font-weight: 900; display: block; }
+
+.contact { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: clamp(22px, 5vw, 44px); }
+.rows { display: grid; gap: 0; margin-top: 8px; }
+.row { display: flex; align-items: center; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.row:last-child { border-bottom: 0; }
+.ico { flex: none; width: 52px; height: 52px; border: 1px solid var(--accent); border-radius: 12px; display: grid; place-items: center; color: var(--accent-hi); }
+.ico svg { width: 24px; height: 24px; }
+.row small { display: block; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.row strong { font-size: 20px; font-weight: 700; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.row > div { min-width: 0; }
+.copy { margin-left: auto; flex: none; font: inherit; font-size: 13px; font-weight: 700; color: var(--accent-hi); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+.copy:hover { border-color: var(--accent-hi); }
+
+footer { padding-block: 32px 40px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+@media (max-width: 480px) { .copy { display: none; } .row strong { font-size: 18px; } }
+@media (prefers-reduced-motion: no-preference) { .btn, .card { transition: transform .2s, background .2s, border-color .2s; } .card:hover { transform: translateY(-3px); border-color: var(--accent); } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 29 29h-6.2L16 15.5 9.2 29H3z" fill="#8b3dff"/><path d="M12.2 22h7.6l1.7 3.4h-11z" fill="#0b0714"/></svg>
+      Apex Athletics
+    </div>
+    <a class="pill" href="#contact">Nous contacter</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="eyebrow">Salle de sport · Centre ville</p>
+      <h1>Plus qu'une salle,<br><span>une communauté</span></h1>
+      <p class="lead">Apex Athletics est un lieu où l'on s'entraîne, progresse et se motive ensemble. Venez rencontrer l'équipe et essayer la salle.</p>
+      <div class="btns">
+        <a class="btn" href="#contact">Nous contacter</a>
+        <a class="btn ghost" href="" target="_blank" rel="noopener">@apexathletics</a>
+      </div>
+    </div>
+
+    <section id="salle">
+      <h2>Ce qu'on vous propose</h2>
+      <p class="sub">Un espace pensé pour tous les niveaux, du premier jour jusqu'à la compétition.</p>
+      <div class="grid">
+        <div class="card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 7v13M20 7v13M4 12h16"/><path d="M8 4v3M16 4v3"/></svg>
+          <h3>Calisthénie</h3>
+          <p>Barres parallèles et espace dédié au poids du corps.</p>
+        </div>
+        <div class="card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.6 6 5.5"/></svg>
+          <h3>Communauté</h3>
+          <p>Des membres et des coachs qui s'encouragent au quotidien.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slogan" aria-label="Notre esprit">
+      <p>Plus qu'une salle,<b>une communauté</b></p>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <h2>Contactez-nous</h2>
+        <p class="sub" style="margin-bottom:12px">On est là pour répondre à toutes vos questions.</p>
+        <div class="rows">
+          <div class="row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <div><small>Téléphone</small><strong id="tel">+216 55 678 001</strong></div>
+            <button class="copy" type="button" data-target="tel">Copier</button>
+          </div>
+          <div class="row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <div><small>Adresse</small><strong>Centre ville</strong></div>
+          </div>
+          <div class="row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+            <div><small>Site web</small><strong>www.apexathletics.tn</strong></div>
+          </div>
+          <div class="row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.500" y="3.500" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.800"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span>
+            <div><small>Réseaux sociaux</small><strong><a href="https://instagram.com/apexathletics" target="_blank" rel="noopener">@apexathletics</a></strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Apex Athletics</span>
+    <span>Centre ville · Tunisie</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var el = document.getElementById(b.dataset.target);
+    var txt = el.textContent;
+    function done() { b.textContent = 'Copié'; setTimeout(function () { b.textContent = 'Copier'; }, 1500); }
+    try {
+      navigator.clipboard.writeText(txt).then(done, function () {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      });
+    } catch (e) {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  });
+});
+</script>
+
+</body>
+</html>
